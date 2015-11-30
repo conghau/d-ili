@@ -1,0 +1,31 @@
+AddType video/mp4 .mp4
+#Options -MultiViews 
+#Options -Indexes
+
+<IfModule mod_rewrite.c>
+	## Uncomment (remove # ONLY NOT ##) line below if installed in folder and add folder name after /
+	## Example: Script is installed in /public_html/folder/ then it should be: Rewritebase /folder/
+	## Then the files below should be (add slash to all): /index.php?action=$1
+	## Uncomment the code below to Use PHP 5.4
+	# AddHandler application/x-httpd-php54 .php
+
+	RewriteEngine On
+
+	## Uncomment the following line to use the multi-domain feature
+	# RewriteCond %{HTTP_HOST} ^yourseconddomain\.com$ [NC]
+	# RewriteRule ^(.*)$ http://yourfirstdomain.com/$1 [R=301,L]
+
+	#Rewritebase /
+	## Admin Panel
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^admin/(.*)?$ admin/index.php?a=$1 [QSA,NC,L]
+
+	## Application Handler
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^(.*)?$ index.php?a=$1	[QSA,NC,L]
+</IfModule>
+
+## Error 404 ##
+ErrorDocument 404 /index.php?a=404

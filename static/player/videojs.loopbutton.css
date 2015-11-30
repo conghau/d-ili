@@ -1,0 +1,25 @@
+/* ! Loopbutton v1.0.0 Copyright 2014 Charlotte Dunois https://github.com/CharlotteDunois/videojs-loopbutton/blob/master/LICENSE.md ! */
+
+@font-face{
+	font-family: 'VideoJS-LoopButton';
+	src: url('font/VideoJS-LoopButton.eot');
+	src: url('font/VideoJS-LoopButton.eot?#iefix') format('embedded-opentype'),
+	url('font/VideoJS-LoopButton.woff') format('woff'),
+	url('font/VideoJS-LoopButton.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.vjs-default-skin .vjs-loop-button:before  {
+	font-family: VideoJS-LoopButton;
+	font-size: 1.5em;
+	line-height: 2em;
+	content: "\e71c"; /* loop icon */
+	width: 17px;
+	height: 17px;
+	margin: 0.5em auto 0;
+}
+
+.vjs-control-active {
+	text-shadow: 0em 0em 1em #FFF;
+}
